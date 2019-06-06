@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Playlists</h1>
+
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">User</th>
+      <th scope="col">mostrar</th>
+      <th scope="col">editar</th>
+      <th scope="col">eliminar</th>
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+   <% @playlists.each do |playlist| %>
+    <tr>
+     <td><%= playlist.name %></td>
+        <td><%= playlist.user.name %></td>
+        <td><%= link_to 'Show', playlist %></td>
+        <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
+        <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+   
+  </tbody>
+</table>
+
+<%= link_to 'New Playlist', new_playlist_path %>
